@@ -1,0 +1,20 @@
+<h1>Heroes List</h1>
+
+<ul *ngIf="listHeroes.length > 0; else heroListEmpty">
+  <li style="list-style:none;" *ngFor="let hero of listHeroes; let i = index">
+    <span>{{i+1}}. {{hero}}</span>&nbsp;
+    <a href="#" (click)="deleteHeroreItem(i)">[X]</a>
+  </li>
+</ul>
+
+<ng-template #heroListEmpty>
+  <small><i>This list is empty, all heroes were deleted!</i></small>
+</ng-template>
+
+<div *ngIf="listHeroesRemoved.length > 0;">
+  <h3>Deleted Heroes:</h3>
+  <ul>
+    <li *ngFor="let heroRemoved of listHeroesRemoved">{{heroRemoved}}</li>
+  </ul>
+</div>
+
